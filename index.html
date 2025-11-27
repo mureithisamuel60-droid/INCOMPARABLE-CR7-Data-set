@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Incomparable CR7</title>
+    <style>
+        body { font-family: Arial; text-align: center; background: #111; color: #fff; }
+        .cr7-card { margin: 20px; display: inline-block; }
+        img { width: 300px; border-radius: 10px; }
+        .stat { background: #222; padding: 10px; margin-top: 5px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Incomparable CR7 Moments</h1>
+
+    <div id="gallery"></div>
+
+    <script>
+    const cr7Data = [
+        { img: "goal2018.jpg", stat: "Scored 450+ goals for Real Madrid ⚡" },
+        { img: "freekick.jpg", stat: "One of the most feared free-kick takers 🔥" },
+        // Add more images here like:
+        // { img: "YOUR_IMAGE_NAME.jpg", stat: "Your fact here" },
+    ];
+
+    const gallery = document.getElementById("gallery");
+
+    cr7Data.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "cr7-card";
+
+        const img = document.createElement("img");
+        img.src = "images/" + item.img;
+
+        const stat = document.createElement("div");
+        stat.className = "stat";
+        stat.textContent = item.stat;
+
+        card.appendChild(img);
+        card.appendChild(stat);
+        gallery.appendChild(card);
+    });
+    </script>
+
+</body>
+</html>
