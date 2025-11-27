@@ -4,13 +4,28 @@
     <meta charset="UTF-8">
     <title>Incomparable CR7</title>
     <style>
-        body { font-family: Arial; text-align: center; background: #111; color: #fff; }
-        .cr7-card { margin: 20px; display: inline-block; }
-        img { width: 300px; border-radius: 10px; }
-        .stat { background: #222; padding: 10px; margin-top: 5px; border-radius: 5px; }
+        const gallery = document.getElementById("gallery");
+
+cr7Data.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "cr7-card";
+
+    const img = document.createElement("img");
+    img.src = "images/" + item.img;
+    img.alt = "CR7";
+
+    const stat = document.createElement("div");
+    stat.className = "stat";
+    stat.textContent = item.stat;
+
+    card.appendChild(img);
+    card.appendChild(stat);
+    gallery.appendChild(card);
+});
+
     </style>
-</head>
-<body>
+    </head>
+    <body>
     <h1>Incomparable CR7 Moments</h1>
 
     <div id="gallery"></div>
@@ -21,6 +36,9 @@
         { img: "freekick.jpg", stat: "One of the most feared free-kick takers 🔥" },
         { img: "WhatsApp Image 2025-11-26 at 4.18.15 PM.jpeg", stat: "CR7 moments before a disaster⚡" },
         { img: "WhatsApp Image 2025-11-26 at 4.21.43 PM.jpeg", stat: "CR7 knuckle free kick🔥🔥" },
+        { img: "WhatsApp Image 2025-11-26 at 4.23.30 PM.jpeg", stat: "Ronaldo presenting all his 5 ball on d'ors in the Santiago Bernabeu.⚡" },
+
+
 
         
          
