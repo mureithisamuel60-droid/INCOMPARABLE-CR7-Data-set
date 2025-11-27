@@ -4,67 +4,71 @@
     <meta charset="UTF-8">
     <title>Incomparable CR7</title>
     <style>
-        const gallery = document.getElementById("gallery");
+        body { font-family: Arial; text-align: center; background: #111; color: #fff; }
+        .cr7-card { margin: 20px; display: inline-block; }
+        img, video { width: 300px; border-radius: 10px; transition: transform 0.3s; }
+        img:hover, video:hover { transform: scale(1.1); box-shadow: 0 0 20px #fff; }
 
-cr7Data.forEach(item => {
-    const card = document.createElement("div");
-    card.className = "cr7-card";
+        @keyframes flash {
+            0%, 100% { color: #fff; text-shadow: 0 0 5px #ff0; }
+            50% { color: #ff0; text-shadow: 0 0 20px #ff0, 0 0 30px #f00; }
+        }
 
-    const img = document.createElement("img");
-    img.src = "images/" + item.img;
-    img.alt = "CR7";
-
-    const stat = document.createElement("div");
-    stat.className = "stat";
-    stat.textContent = item.stat;
-
-    card.appendChild(img);
-    card.appendChild(stat);
-    gallery.appendChild(card);
-});
-
+        .stat {
+            background: #222;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+            animation: flash 1.5s infinite;
+        }
     </style>
-    </head>
-    <body>
+</head>
+<body>
     <h1>Incomparable CR7 Moments</h1>
-
     <div id="gallery"></div>
 
     <script>
-    const cr7Data = [
-        { img: "WhatsApp Image 2025-11-26 at 4.18.15 PM.jpeg", stat: "CR7 moments before a disaster⚡" },
-        { img: "WhatsApp Image 2025-11-26 at 4.21.43 PM.jpeg", stat: "CR7 knuckle free kick🔥🔥" },
-        { img: "WhatsApp Image 2025-11-26 at 4.23.30 PM.jpeg", stat: "Ronaldo presenting all his 5 ball on d'ors in the Santiago Bernabeu.⚡" },
-        { img: "WhatsApp Image 2025-11-27 at 3.20.38 PM.jpeg", stat: "Cristiano is still delivering when his team needs him at the age of 40 ⚡" },
+        const cr7Data = [
+            { img: "WhatsApp Image 2025-11-26 at 4.18.15 PM.jpeg", stat: "CR7 moments before a disaster⚡" },
+            { img: "WhatsApp Image 2025-11-26 at 4.21.43 PM.jpeg", stat: "CR7 knuckle free kick🔥🔥" },
+            { img: "WhatsApp Image 2025-11-26 at 4.23.30 PM.jpeg", stat: "Ronaldo presenting all his 5 ball on d'ors in the Santiago Bernabeu.⚡" },
+            { img: "WhatsApp Image 2025-11-27 at 3.20.38 PM.jpeg", stat: "Cristiano is still delivering when his team needs him at the age of 40 ⚡" },
+            // Example videos
+            { video: "cr7-goal.mp4", stat: "CR7  ⚡" },
+            { video: "freekick-video.mp4", stat: "CR7’s legendary free-kick 🔥" },
+        ];
 
+        const gallery = document.getElementById("gallery");
 
+        cr7Data.forEach(item => {
+            const card = document.createElement("div");
+            card.className = "cr7-card";
 
+            if(item.img){
+                const img = document.createElement("img");
+                img.src = "images/" + item.img;
+                img.alt = "CR7";
+                card.appendChild(img);
+            }
 
-        
-         
+            if(item.video){
+                const video = document.createElement("video");
+                video.src = "videos/" + item.video;
+                video.controls = true;
+                video.width = 300;
+                video.style.borderRadius = "10px";
+                card.appendChild(video);
+            }
 
-        // Add more images here like:
-        // { img: "YOUR_IMAGE_NAME.jpg", stat: "Your fact here" },
-    ];
+            const stat = document.createElement("div");
+            stat.className = "stat";
+            stat.textContent = item.stat;
 
-    const gallery = document.getElementById("gallery");
-
-    cr7Data.forEach(item => {
-        const card = document.createElement("div");
-        card.className = "cr7-card";
-
-        const img = document.createElement("img");
-        img.src = "images/" + item.img;
-
-        const stat = document.createElement("div");
-        stat.className = "stat";
-        stat.textContent = item.stat;
-
-        card.appendChild(img);
-        card.appendChild(stat);
-        gallery.appendChild(card);
-    });
+            card.appendChild(stat);
+            gallery.appendChild(card);
+        });
     </script>
-
 </body>
 </html>
